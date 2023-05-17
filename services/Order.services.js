@@ -1,4 +1,6 @@
-const { ObjectId } = require('mongodb');
+const mongoose = require('mongoose');
+
+const { ObjectId } = mongoose.Types.ObjectId;
 const Order = require('../models/Order.model');
 
 module.exports.getAllOrderService = async (req) => {
@@ -17,8 +19,9 @@ module.exports.getAllOrderService = async (req) => {
 
 module.exports.addANewOrderService = async (req) => {
     const orderedPackage = req.body;
-    const result = await Order.insertOne(orderedPackage);
-    return result;
+    const newOrder = new Order(orderedPackage);
+    const savedOrder = await newOrder.save();
+    return savedOrder;
 };
 
 module.exports.getMyOrderService = async (req) => {

@@ -6,7 +6,7 @@ const router = express.Router();
 
 router.route('/').get(ReviewController.getAllReview);
 
-router.route('/delete/:id').post(verifyJWT, ReviewController.deleteReview);
+router.route('/delete/:id').delete(verifyJWT, ReviewController.deleteReview);
 
 router.route('/:email').post(verifyJWT, ReviewController.addReview);
 

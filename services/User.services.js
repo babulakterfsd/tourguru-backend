@@ -1,4 +1,6 @@
-const { ObjectId } = require('mongodb');
+const mongoose = require('mongoose');
+
+const { ObjectId } = mongoose.Types.ObjectId;
 const User = require('../models/User.model');
 
 module.exports.getAllUserService = async (query) => {

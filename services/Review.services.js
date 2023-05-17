@@ -1,4 +1,6 @@
-const { ObjectId } = require('mongodb');
+const mongoose = require('mongoose');
+
+const { ObjectId } = mongoose.Types.ObjectId;
 const Review = require('../models/Review.model');
 
 module.exports.getAllReviewService = async () => {
@@ -11,8 +13,9 @@ module.exports.addReviewService = async (req) => {
     const decodedEmail = req?.decoded?.userEmail;
     if (decodedEmail === email) {
         const review = req.body;
-        const result = await Review.insertOne(review);
-        return result;
+        const result = new Review(review);
+        const savedReview = await result.save();
+        return savedReview;
     }
 };
 

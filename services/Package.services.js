@@ -1,4 +1,6 @@
-const { ObjectId } = require('mongodb');
+const mongoose = require('mongoose');
+
+const { ObjectId } = mongoose.Types.ObjectId;
 const Package = require('../models/Package.model');
 
 module.exports.getAllPackagesService = async (req) => {
@@ -22,9 +24,10 @@ module.exports.getAllPackagesService = async (req) => {
 };
 
 module.exports.addANewPackageService = async (req) => {
-    const newPackage = req.body;
-    const result = await Package.insertOne(newPackage);
-    return result;
+    const data = req.body;
+    const newPackage = new Package(data);
+    const savedPackage = await newPackage.save();
+    return savedPackage;
 };
 
 module.exports.getSinglePackageByIdService = async (req) => {
