@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 const mongoose = require('mongoose');
 
 const { ObjectId } = mongoose.Types.ObjectId;
@@ -71,7 +72,7 @@ module.exports.updateUserProfileService = async (req) => {
             ...req.body,
         },
     };
-    const result = await User.updateOne(user, infoUpdate, options);
+    const result = await User.updateOne({ _id: user?._id }, infoUpdate, options);
     return result;
 };
 
