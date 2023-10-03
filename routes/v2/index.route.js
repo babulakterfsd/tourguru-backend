@@ -3,6 +3,8 @@ const IndexController = require('../../controllers/Index.controller');
 
 const router = express.Router();
 
+router.route('/').get(IndexController.welcome);
+
 router.route('/create-payment-intent').post(IndexController.createPaymentIntent);
 
 router.route('/getaccesstoken').post(IndexController.getAccessToken);

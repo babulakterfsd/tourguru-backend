@@ -1,6 +1,6 @@
 # Tourguru: Your best and trusted travel partner.
 
-## Live Link : Visit our site [Tourguru](https://tourguru.babulakter.com)
+## Live Link : Visit our site [Tourguru](https://tourguru.netlify.app)
 
 ### About Project
 

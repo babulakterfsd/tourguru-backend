@@ -28,3 +28,7 @@ module.exports.sendEmail = async (req, res) => {
     shootMail(mailData);
     res.send(mailData);
 };
+
+module.exports.welcome = async (req, res) => {
+    res.send('Welcome to the tourguru API v2');
+};

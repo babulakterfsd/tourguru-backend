@@ -4,10 +4,7 @@ const { verifyJWT } = require('../../middlewares/verifyToken');
 
 const router = express.Router();
 
-router
-    .route('/')
-    .get(PackageController.getAllPackages)
-    .post(verifyJWT, PackageController.addANewPackage);
+router.route('/').get(PackageController.getAllPackages).post(PackageController.addANewPackage);
 
 router
     .route('/:packageid')
